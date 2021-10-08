@@ -323,7 +323,7 @@
                                                                                     </p>
                                                                                     <label for="apellido">Apellido</label>
                                                                                     <p>
-                                                                                        <input id="apellido" name="apellido" type="text" value="{{ $user->apellidos }}" class="col-md-6 form-control"> 
+                                                                                        <input id="apellidos" name="apellidos" type="text" value="{{ $user->apellidos }}" class="col-md-6 form-control"> 
                                                                                     </p>
                                                                                     <label for="telefono">Teléfono</label>
                                                                                     <p>
