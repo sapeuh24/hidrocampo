@@ -2,9 +2,36 @@
   gris claro = #626262
   background gris = #1b2127
   celeste =#026fff*/
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
   body {
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
     margin: 0;
+  }
+
+
+  #hidrocampo .navbar{
+    height: 80px;
+    background-color: rgba(0,0,0,0.8)!important;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+  }
+
+  #hidrocampo .navbar-nav{
+    margin-right: 0!important;
+    margin-left: auto;
+  }
+
+  #hidrocampo .navbar-nav .nav-link{
+    font-size: 1.15em;
+    font-weight: 200;
+    padding: 0 1rem;
+  }
+
+  #hidrocampo .navbar-nav .nav-link.active{
+    font-weight: 600;
   }
 
   h1, h2, h3, h4, h5, h6 {
