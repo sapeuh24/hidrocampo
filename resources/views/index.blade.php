@@ -64,21 +64,4 @@
       </article>
     </div>
   </section>
-  <section id="contacto" class="contact">
-    <div class="container">
-      <form action="/suscription/" class="form-email">
-        <h3>Quieres ser parte ?</h3>
-        <label for="email"></label>
-        <input type="text" placeholder="Deja tu e-mail" id="email">
-        <button type="button" name="">Enviar</button>
-      </form>
-      <div class="social">
-        <a href="https://twitter.com/jslindarte28" class="social-link twitter"></a>
-        <a href="https://www.facebook.com/SEBASTT.SANCHEZ" class="social-link facebook"></a>
-        <a href="https://www.github.com" class="social-link github"></a>
-        <a href="https://www.instagram.com/sebas_lindarte/" class="social-link instagram"></a>
-      </div>
-    </div>
-  </section>
-    
 @endsection
