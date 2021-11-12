@@ -26,7 +26,6 @@ class PlanesController extends Controller
      */
     public function create()
     {
-
     }
 
     /**
@@ -66,7 +65,9 @@ class PlanesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $plan = Plan::find($id);
+
+        return response()->json($plan);
     }
 
     /**
@@ -76,9 +77,16 @@ class PlanesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $plan = Plan::find($request->id_plan);
+
+        $plan->nomb_plan = $request->nomb_plan_edit;
+        $plan->precio = $request->precio_edit;
+        $plan->cant_dispositivos = $request->cantidad_edit;
+        $plan->update();
+
+        return back();
     }
 
     /**

@@ -21,6 +21,13 @@
             </a>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('index_localizaciones') }}">
+                <i class="bi bi-person"></i>
+                <span>Localizaciones</span>
+            </a>
+        </li>
+
         {{-- <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('index_planes') }}">
                 <i class="bi bi-display"></i>

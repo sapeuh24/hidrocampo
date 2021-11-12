@@ -29,5 +29,11 @@ Route::post('/actualizar_usuario/{id}', 'UsersController@update')->name('update_
 Route::get('/planes', 'PlanesController@index')->name('index_planes');
 Route::post('/crear_planes', 'PlanesController@store')->name('create_planes');
 Route::get('/eliminar_plan/{id}', 'PlanesController@destroy')->name('eliminar_plan');
+Route::get('/traer_info_plan/{id}', 'PlanesController@edit')->name('traer_info_plan');
+Route::post('/actualizar_plan', 'PlanesController@update')->name('actualizar_plan');
 
-
+//rutas de localidades
+Route::get('/localizaciones', 'LocalizacionController@index')->name('index_localizaciones');
+Route::get('/eliminar_localizacion/{id}', 'LocalizacionController@destroy')->name('eliminar_localizacion');
+Route::get('/traer_info_localizacion/{id}', 'LocalizacionController@edit')->name('traer_info_localizacion');
+Route::post('/actualizar_localizacion', 'LocalizacionController@update')->name('actualizar_localizacion');

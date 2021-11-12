@@ -4,11 +4,11 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Usuarios</h1>
+            <h1>Localizaciones</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-                    <li class="breadcrumb-item active">Planes</li>
+                    <li class="breadcrumb-item active">Localizaciones</li>
                 </ol>
             </nav>
         </div>
@@ -18,31 +18,33 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Listado de planes</h5>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#crear_plan">
-                                Crear Plan
+                            <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal"
+                                data-bs-target="#crear_localizacion">
+                                Crear Localizacion
                             </button>
                             <table class="table datatable">
                                 <thead>
                                     <tr class="uppercase">
+                                        <th> Dirección </th>
+                                        <th> Ciudad </th>
+                                        <th> Usuario </th>
                                         <th> Plan </th>
-                                        <th> Precio </th>
-                                        <th> Cantidad de dispositivos </th>
                                         <th> Acciones </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($planes as $plan)
+                                    @foreach ($localizaciones as $localizacion)
                                         <tr>
-                                            <td>{{ $plan->nomb_plan }}</td>
-                                            <td>{{ $plan->precio }}</td>
-                                            <td>{{ $plan->cant_dispositivos }}</td>
+                                            <td>{{ $localizacion->direccion }}</td>
+                                            <td>{{ $localizacion->nomb_ciudad }}</td>
+                                            <td>{{ $localizacion->name . ' ' . $localizacion->apellidos }}</td>
+                                            <td>{{ $localizacion->nomb_plan }}</td>
                                             <td>
 
-                                                <div class="btn btn-info" onclick="editar_plan({{ $plan->id }})">
+                                                <div class="btn btn-info"
+                                                    onclick="editar_localizacion({{ $localizacion->id }})">
                                                     Editar</div>
-                                                <a href="{{ route('eliminar_plan', $plan->id) }}"
+                                                <a href="{{ route('eliminar_localizacion', $localizacion->id) }}"
                                                     class="btn btn-danger">Eliminar</a>
                                             </td>
                                         </tr>
@@ -58,7 +60,8 @@
         <!-- Button trigger modal -->
 
         <!-- Modal Crear Planes -->
-        <div class="modal fade" id="crear_plan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="crear_localizacion" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -69,18 +72,34 @@
                         @csrf
                         <div class="modal-body">
                             <div class="mb-3">
-                                <label for="nombre_plan" class="form-label">Nombre plan</label>
-                                <input name="nomb_plan" type="text" class="form-control" id="nombre_plan">
+                                <label for="direccion" class="form-label">Dirección</label>
+                                <input name="direccion" type="text" class="form-control" id="direccion">
                             </div>
                             <div class="mb-3">
-                                <label for="precio" class="form-label">Precio</label>
-                                <input name="precio" type="number" class="form-control" id="precio">
+                                <label for="ciudad" class="form-label">Ciudad</label>
+                                <select name="ciudad" class="form-control" id="ciudad">
+                                    @foreach ($ciudades as $ciudad)
+                                        <option value="{{ $ciudad->id }}">{{ $ciudad->nomb_ciudad }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="mb-3">
-                                <label for="cantidad" class="form-label">Cantidad de dispositivos</label>
-                                <input name="cantidad" type="number" class="form-control" id="cantidad">
+                                <label for="usuario" class="form-label">Usuario</label>
+                                <select name="usuario" class="form-control" id="usuario">
+                                    @foreach ($usuarios as $usuario)
+                                        <option value="{{ $usuario->id }}">
+                                            {{ $usuario->nombre . ' ' . $usuario->apellidos }}</option>
+                                    @endforeach
+                                </select>
                             </div>
-
+                            <div class="mb-3">
+                                <label for="plan" class="form-label">Plan</label>
+                                <select name="plan" class="form-control" id="plan">
+                                    @foreach ($planes as $plan)
+                                        <option value="{{ $plan->id }}">{{ $plan->nomb_plan }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -92,14 +111,15 @@
         </div>
 
         <!-- Modal Editar Planes -->
-        <div class="modal fade" id="editar_plan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="editar_localizacion" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Editar plan</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form action="{{ route('actualizar_plan') }}" method="POST">
+                    <form action="{{ route('actualizar_localizacion') }}" method="POST">
                         @csrf
                         <div class="modal-body">
                             <div class="mb-3">
@@ -132,7 +152,7 @@
 @section('scripts')
     <script>
         function editar_plan(id) {
-            axios.get('/traer_info_plan/' + id)
+            axios.get('/traer_info_localizacion/' + id)
                 .then(function(response) {
                     $('#editar_plan').modal('show');
                     $('#nombre_plan_edit').val(response.data.nomb_plan);
