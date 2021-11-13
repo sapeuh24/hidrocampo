@@ -8,7 +8,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('index_users') }}">
+            <a class="nav-link collapsed" href="{{ route('index_usuario') }}">
                 <i class="bi bi-person"></i>
                 <span>Usuarios</span>
             </a>
