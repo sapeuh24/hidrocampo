@@ -20,10 +20,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 //rutas de usuarios
-Route::get('/usuarios', 'UsersController@index')->name('index_users');
-Route::post('/crear_usuario/', 'UsersController@store')->name('create_user');
-Route::get('/eliminar_usuario/{id}', 'UsersController@destroy')->name('destroy_user');
-Route::post('/actualizar_usuario/{id}', 'UsersController@update')->name('update_user');
+Route::get('/usuarios', 'UsersController@index')->name('index_usuario');
+Route::post('/crear_usuario/', 'UsersController@store')->name('crear_usuario');
+Route::get('/eliminar_usuario/{id}', 'UsersController@destroy')->name('eliminar_usuario');
+Route::post('/actualizar_usuario/', 'UsersController@update')->name('actualizar_usuario');
+Route::get('/traer_info_usuario/{id}', 'UsersController@edit')->name('traer_info_usuario');
 
 //rutas de planes
 Route::get('/planes', 'PlanesController@index')->name('index_planes');
