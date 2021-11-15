@@ -40,8 +40,8 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $user= new User();
-        $user->nombre = $request->nombre;
-        $user->apellidos = $request->apellidos;
+        $user->nombre = $request->nomb_usuario;
+        $user->apellidos = $request->apellido_usuario;
         $user->telefono = $request->telefono;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
@@ -68,7 +68,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $usuario = User::find($id);
+        return response()->json($usuario);
     }
 
     /**
@@ -78,14 +79,13 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $user = User::find($id);
+        $user = User::find($request->id_usuario);
 
-        $user->nombre = $request->nombre;
-        $user->apellidos = $request->apellidos;
-        $user->telefono = $request->telefono;
-        $user->email = $request->email;
+        $user->nombre = $request->nombre_user_edit;
+        $user->apellidos = $request->apellido_user_edit;
+        $user->telefono = $request->telefono_user_edit;
         $user->update();
 
         return back()->with(Session::flash('message', 'Se ha actualizado el usuario: '. $user->nombre));
@@ -100,9 +100,7 @@ class UsersController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
-
         $user->delete();
-
         return back()->with(Session::flash('message', 'Se ha eliminado el usuario: '. $user->nombre));
     }
 }
