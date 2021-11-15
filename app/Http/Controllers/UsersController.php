@@ -46,7 +46,7 @@ class UsersController extends Controller
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->save();
-        return back()->with(Session::flash('message', 'Se ha creado el usuario: '. $user->name));
+        return back()->with(Session::flash('message', 'Se ha creado el usuario: '. $user->nombre));
     }
 
     /**
@@ -88,7 +88,7 @@ class UsersController extends Controller
         $user->email = $request->email;
         $user->update();
 
-        return back()->with(Session::flash('message', 'Se ha actualizado el usuario: '. $user->name));
+        return back()->with(Session::flash('message', 'Se ha actualizado el usuario: '. $user->nombre));
     }
 
     /**
@@ -103,6 +103,6 @@ class UsersController extends Controller
 
         $user->delete();
 
-        return back()->with(Session::flash('message', 'Se ha eliminado el usuario: '. $user->name));
+        return back()->with(Session::flash('message', 'Se ha eliminado el usuario: '. $user->nombre));
     }
 }

@@ -4,29 +4,41 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/estilos_index.css') }}">
   <link rel="stylesheet" href="css/fontawesome/css/all.min.css">
   <title>HidroCampo</title>
 </head>
-<body>
-  <header class="header" id="inicio">
-    <!-- Se utiliza para las cabeceras -->
-    <div class="container">
+<body id="hidrocampo">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
       <figure class="logo">
         <img src="{{ asset('images/logotemporal.png') }}" width="200" alt="logo de http://hidrocampo.com" />
-      </figure>
-      <nav class="menu">
-        <!-- <ul></ul> Esto es una lista desordenada -->
-        <ol>
-          <li><a href="#" class="link">Inicio</a></li>
-          <li><a href="#" class="link">Nosotros</a></li>
-          <li><a href="#" class="link">Contactenos</a></li>
-          <li><a href="#" class="link">Producto</a></li>
-          <li><a href="{{ route('login') }}" class="link">Acceder</a></li>
-        </ol>
-      </nav>
+      </figure>  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Nosotros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contáctenos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Producto</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('login') }}">Acceder</a>
+        </li>
+        
+  
+      </ul>
     </div>
-  </header>
+  </div>
+</nav>  
+
   
   @yield('content')
 
@@ -41,7 +53,24 @@
       </div>
     </div>
   </footer>
-
+  <section id="contacto" class="contact">
+    <div class="container">
+      <form action="/suscription/" class="form-email">
+        <h3>Quieres ser parte ?</h3>
+        <label for="email"></label>
+        <input type="text" placeholder="Deja tu e-mail" id="email">
+        <button type="button" name="">Enviar</button>
+      </form>
+      <div class="social">
+        <a href="https://twitter.com/jslindarte28" class="social-link twitter"></a>
+        <a href="https://www.facebook.com/SEBASTT.SANCHEZ" class="social-link facebook"></a>
+        <a href="https://www.github.com" class="social-link github"></a>
+        <a href="https://www.instagram.com/sebas_lindarte/" class="social-link instagram"></a>
+      </div>
+    </div>
+  </section>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    
+  <script src="{{ asset('js/bootstrap.min.js') }}"></script>     
 </body>
 
 </html>

@@ -11,12 +11,16 @@
 
     <title>HidroCampo</title>
 
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
+        type="text/css" />
     <link href="../assets_user/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="../assets_user/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets_user/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet"
+        type="text/css" />
     <link href="../assets_user/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="../assets_user/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
-    <link href="../assets_user/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css" />
+    <link href="../assets_user/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet"
+        type="text/css" />
+    <link href="../assets_user/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet"
+        type="text/css" />
     <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN THEME GLOBAL STYLES -->
     <link href="../assets_user/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
@@ -27,7 +31,8 @@
     <!-- END PAGE LEVEL STYLES -->
     <!-- BEGIN THEME LAYOUT STYLES -->
     <link href="../assets_user/layouts/layout/css/layout.min.css" rel="stylesheet" type="text/css" />
-    <link href="../assets_user/layouts/layout/css/themes/darkblue.min.css" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="../assets_user/layouts/layout/css/themes/darkblue.min.css" rel="stylesheet" type="text/css"
+        id="style_color" />
     <link href="../assets_user/layouts/layout/css/custom.min.css" rel="stylesheet" type="text/css" />
 
     <!-- Bootstrap CSS -->
@@ -289,16 +294,6 @@
                             <div class="log-arrow-up"></div>
                             <li class="eborder-top">
                                 <a href="#"><i class="icon_profile"></i> Mi Perfil</a>
-                                {{-- </li>
-              <li>
-                <a href="#"><i class="icon_mail_alt"></i> My Inbox</a>
-              </li>
-              <li>
-                <a href="#"><i class="icon_clock_alt"></i> Timeline</a>
-              </li>
-              <li>
-                <a href="#"><i class="icon_chat_alt"></i> Chats</a>
-              </li> --}}
                             <li>
                                 <a class="icon-key-alt" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -345,27 +340,9 @@
         <!--main content start-->
         <section id="main-content">
             <section class="wrapper">
-                {{-- <div class="row">
-                    <div class="col-lg-12">
-                        <h3 class="page-header"><i class="fa fa-list-alt"></i> Estadisticas</h3>
-                        <ol class="breadcrumb">
-                            <li><i class="fa fa-home"></i><a href="index.html">Inicio</a></li>
-                            <li><i class="fa fa-desktop"></i>UI Fitures</li>
-              <li><i class="fa fa-list-alt"></i>Components</li>
-                        </ol>
-                    </div>
-                </div> --}}
+
                 @yield('content')
-                {{-- <div class="row">
-                  <div class="col col-sm-12 text-center">
-                    <div class="container">
-                      <h3 class="text-primary">Gráfica actual</h3>
-                      
-                      <iframe width="550" height="360" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1397590/charts/1?bgcolor=%23ffffff&color=%2360F019&days=1&dynamic=true&results=3&title=Sensor+de+Humedad&type=bar"></iframe>
-                      
-                    </div>
-                  </div>
-                </div> --}}
+
             </section>
         </section>
         <!--main content end-->
@@ -386,7 +363,6 @@
     <script src="js/gritter.js" type="text/javascript"></script>
     <!--custome script for all page-->
     <script src="js/scripts.js"></script>
-
 
 </body>
 
