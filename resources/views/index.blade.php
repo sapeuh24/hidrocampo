@@ -34,9 +34,33 @@
   </button>
 </div>
 
-  <section id="Portafolio" class="Portafolio">
+  <section id="nosotros">
     <div class="container">
-      <h2>Sistemas de riego</h2>
+      <header>
+        <h2>Sobre Nosotros</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum bibendum nisi a sapien elementum auctor. Nam consectetur imperdiet aliquet. Maecenas sit amet porta justo.<p>
+      </header>
+      <div class="row">
+        <div class="col-12 col-md-4 text-center">
+          <img src="{{ asset('images/icon-1.png') }}" class="icon" alt="...">
+          <h3>Lorem ipsum dolor</h3>
+          <p>Proin in malesuada dui. Pellentesque sollicitudin diam quis ultrices posuere. Sed in magna tortor. Fusce ac nisl ac diam scelerisque euismod.</p>
+          <button type="button" class="btn btn-danger">Danger</button>
+        </div>
+        <div class="col-12 col-md-4 text-center">
+          <img src="{{ asset('images/icon-2.png') }}" class="icon" alt="...">
+          <h3>Lorem ipsum dolor</h3>
+          <p>Proin in malesuada dui. Pellentesque sollicitudin diam quis ultrices posuere. Sed in magna tortor. Fusce ac nisl ac diam scelerisque euismod.</p>
+          <button type="button" class="btn btn-danger">Danger</button>
+        </div>
+        <div class="col-12 col-md-4 text-center">
+          <img src="{{ asset('images/icon-3.png') }}" class="icon" alt="...">
+          <h3>Lorem ipsum dolor</h3>
+          <p>Proin in malesuada dui. Pellentesque sollicitudin diam quis ultrices posuere. Sed in magna tortor. Fusce ac nisl ac diam scelerisque euismod.</p>
+          <button type="button" class="btn btn-danger">Danger</button>
+        </div>
+      </div>
+
       <article class="project">
         <div class="project-details">
           <h3 class="project-title">Sistema de riego</h3>
