@@ -16,13 +16,19 @@
       </div>
     </div>
     <div class="carousel-item">
-      <img src="{{ asset('img/banner3.jpg') }}" class="d-block w-100" alt="...">
+      <img src="{{ asset('img/banner2.jpg') }}" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h5>Second slide label</h5>
         <p>Some representative placeholder content for the second slide.</p>
       </div>
     </div>
-
+    <div class="carousel-item">
+      <img src="{{ asset('img/banner3.jpg') }}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block" style="align-items: flex-start;">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -34,9 +40,37 @@
   </button>
 </div>
 
-  <section id="Portafolio" class="Portafolio">
+  <section id="nosotros">
     <div class="container">
-      <h2>Sistemas de riego</h2>
+      <header>
+        <h2>Sobre Nosotros</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum bibendum nisi a sapien elementum auctor. Nam consectetur imperdiet aliquet. Maecenas sit amet porta justo.<p>
+      </header>
+      <div class="row">
+        <div class="col-12 col-md-4 text-center">
+          <img src="{{ asset('images/icon-1.png') }}" class="icon" alt="...">
+          <h3>Nuestros Planes</h3>
+          <p>Proin in malesuada dui. Pellentesque sollicitudin diam quis ultrices posuere. Sed in magna tortor.</p>
+          <button type="button" class="btn btn-danger btn-verMas">Ver más</button>
+        </div>
+        <div class="col-12 col-md-4 text-center">
+          <img src="{{ asset('images/icon-2.png') }}" class="icon" alt="...">
+          <h3>Dispositivos</h3>
+          <p>Proin in malesuada dui. Pellentesque sollicitudin diam quis ultrices posuere. Sed in magna tortor.</p>
+          <button type="button" class="btn btn-danger btn-verMas">Ver más</button>
+        </div>
+        <div class="col-12 col-md-4 text-center">
+          <img src="{{ asset('images/icon-3.png') }}" class="icon" alt="...">
+          <h3>Conócenos</h3>
+          <p>Proin in malesuada dui. Pellentesque sollicitudin diam quis ultrices posuere. Sed in magna tortor.</p>
+          <button type="button" class="btn btn-danger btn-verMas">Ver más</button>
+        </div>
+      </div>
+    </div> 
+  </section>
+  <section  id="galeria">
+
+  </section>
       <article class="project">
         <div class="project-details">
           <h3 class="project-title">Sistema de riego</h3>
