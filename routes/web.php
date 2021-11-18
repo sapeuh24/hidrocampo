@@ -38,3 +38,4 @@ Route::get('/localizaciones', 'LocalizacionController@index')->name('index_local
 Route::get('/eliminar_localizacion/{id}', 'LocalizacionController@destroy')->name('eliminar_localizacion');
 Route::get('/traer_info_localizacion/{id}', 'LocalizacionController@edit')->name('traer_info_localizacion');
 Route::post('/actualizar_localizacion', 'LocalizacionController@update')->name('actualizar_localizacion');
+Route::post('/crear_localizacion', 'LocalizacionController@store')->name('create_localizacion');

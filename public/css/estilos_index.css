@@ -13,6 +13,13 @@
     text-align: center;
   }
 
+
+  .carousel-control-next-icon, .carousel-control-prev-icon{
+    width: 3rem;
+    height: 3rem;
+  }
+
+
   #hidrocampo .navbar{
     height: 80px;
     background-color: rgba(0,0,0,0.7)!important;
@@ -28,9 +35,9 @@
   }
 
   #hidrocampo .navbar-nav .nav-link{
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: 200;
-    padding: 0 1.5rem;
+    padding: 0.2rem 0 0 3rem;
     color: rgba(255,255,255,.85);
   }
 
@@ -49,7 +56,7 @@
   #hidrocampo .carousel-item .carousel-caption h5{
     font-family: 'Montserrat', sans-serif;
     color:rgba(255,255,255,0.9);
-    font-size: 4em;
+    font-size: 5em;
     font-weight: 800;
     margin-top: 50px;
   }
@@ -118,7 +125,7 @@
   }
 
   #nosotros{
-    padding: 3em 0;
+    padding: 4em 0;
   }
 
   #nosotros header{
@@ -131,11 +138,11 @@
     width: 100%;
     max-width: 100%;
     text-align: center;
-    font-weight: 600;
+    font-weight: 700;
     margin: 0;
-    color: #6f8aa3;
+    color: #3e3a3a;
     margin: 20px 0;
-    text-transform: none;
+
   }
 
   #nosotros header p{
@@ -146,21 +153,112 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 200;
     text-align: center;
-    font-size: 0.9em;
+    font-size: 14px;
+    width: 80%;
+    margin: 0 auto 10px auto;
   }
 
   #nosotros .icon{
     text-align: center;
     width: 100%;
-    max-width: 120px;
+    max-width: 90px;
     margin: 20px 0;
   }
 
   #nosotros h3{
     font-family: 'Montserrat', sans-serif;
-    color: #838383;
+    color: #3e3a3a;
     font-weight: 500;
-    font-size: 1.3em;
+    font-size: 1.1em;
+    margin: 1em 0 0.5em 0;
+  }
+
+  .btn-verMas{
+    background: #a1c543;
+    border: none;
+    border-radius: 20px;
+    padding: 0.4em 2em;
+    font-size: 13px;
+  }
+
+  .btn-verMas:hover{
+    background: #43c5bf;
+  }
+
+  #galeria{
+    moz-align-items: -moz-stretch;
+    -webkit-align-items: -webkit-stretch;
+    -ms-align-items: -ms-stretch;
+    align-items: stretch;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -moz-flex-direction: row;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -moz-justify-content: -moz-flex-end;
+    -webkit-justify-content: -webkit-flex-end;
+    -ms-justify-content: -ms-flex-end;
+    justify-content: flex-end;
+    position: relative;
+    overflow-x: hidden;
+    text-align: left;
+    background: #fff7f7;
+  }
+
+  #galeria .image{
+    moz-flex-grow: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-grow: 0;
+    flex-grow: 0;
+    -moz-flex-shrink: 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex-shrink: 0;
+    flex-shrink: 0;
+    width: 40%;
+    border-radius: 0;
+    display: inline-block;
+    position: relative;
+  }
+
+  #galeria .image img{
+    /*max-width: 100%;*/
+    width: calc(100% + 50px);
+    width: -webkit-calc(100% + 50px);
+    opacity: .8;
+    -webkit-transition: opacity .35s,-webkit-transform .35s;
+    transition: opacity .35s,-webkit-transform .35s;
+    -o-transition: opacity .35s,transform .35s;
+    transition: opacity .35s,transform .35s;
+    transition: opacity .35s,transform .35s,-webkit-transform .35s;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -moz-object-fit: cover;
+    -webkit-object-fit: cover;
+    -ms-object-fit: cover;
+    object-fit: cover;
+    -moz-object-position: center top;
+    -webkit-object-position: center top;
+    -ms-object-position: center top;
+    object-position: center top;
+    
+  }
+
+  #galeria .image:hover img{
+    -webkit-transform: translate3d(-50px,0,0);
+    transform: translate3d(-50px,0,0);
+    opacity: 1;
+  }
+
+  #galeria .content{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0 0 0 80px;
+    justify-content: center;
   }
 
   .Portafolio {
