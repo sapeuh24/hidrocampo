@@ -185,6 +185,82 @@
     background: #43c5bf;
   }
 
+  #galeria{
+    moz-align-items: -moz-stretch;
+    -webkit-align-items: -webkit-stretch;
+    -ms-align-items: -ms-stretch;
+    align-items: stretch;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -moz-flex-direction: row;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -moz-justify-content: -moz-flex-end;
+    -webkit-justify-content: -webkit-flex-end;
+    -ms-justify-content: -ms-flex-end;
+    justify-content: flex-end;
+    position: relative;
+    overflow-x: hidden;
+    text-align: left;
+    background: #fff7f7;
+  }
+
+  #galeria .image{
+    moz-flex-grow: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-grow: 0;
+    flex-grow: 0;
+    -moz-flex-shrink: 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex-shrink: 0;
+    flex-shrink: 0;
+    width: 40%;
+    border-radius: 0;
+    display: inline-block;
+    position: relative;
+  }
+
+  #galeria .image img{
+    /*max-width: 100%;*/
+    width: calc(100% + 50px);
+    width: -webkit-calc(100% + 50px);
+    opacity: .8;
+    -webkit-transition: opacity .35s,-webkit-transform .35s;
+    transition: opacity .35s,-webkit-transform .35s;
+    -o-transition: opacity .35s,transform .35s;
+    transition: opacity .35s,transform .35s;
+    transition: opacity .35s,transform .35s,-webkit-transform .35s;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -moz-object-fit: cover;
+    -webkit-object-fit: cover;
+    -ms-object-fit: cover;
+    object-fit: cover;
+    -moz-object-position: center top;
+    -webkit-object-position: center top;
+    -ms-object-position: center top;
+    object-position: center top;
+    
+  }
+
+  #galeria .image:hover img{
+    -webkit-transform: translate3d(-50px,0,0);
+    transform: translate3d(-50px,0,0);
+    opacity: 1;
+  }
+
+  #galeria .content{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0 0 0 80px;
+    justify-content: center;
+  }
+
   .Portafolio {
     background: #eeeeee;
     padding: 20px;

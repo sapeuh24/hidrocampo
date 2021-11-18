@@ -9,21 +9,21 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-    <img src="{{ asset('img/banner1.jpg') }}" class="d-block w-100" alt="...">
+    <img src="{{ asset('images/banner1.jpg') }}" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h5>SISTEMA <br><span>DE RIEGO</span></h5>
         <p>Es un componente tecnologico basico, programable para optimizar el riego de los cultivos .</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="{{ asset('img/banner2.jpg') }}" class="d-block w-100" alt="...">
+      <img src="{{ asset('images/banner2.jpg') }}" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h5>Second slide label</h5>
         <p>Some representative placeholder content for the second slide.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="{{ asset('img/banner3.jpg') }}" class="d-block w-100" alt="...">
+      <img src="{{ asset('images/banner3.jpg') }}" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block" style="align-items: flex-start;">
         <h5>Second slide label</h5>
         <p>Some representative placeholder content for the second slide.</p>
@@ -69,7 +69,12 @@
     </div> 
   </section>
   <section  id="galeria">
-
+    <div class="image">
+      <img src="{{ asset('images/imgDestacada1.jpg') }}" alt="">
+    </div>
+    <div class="content">
+      aaaaaa
+    </div>
   </section>
       <article class="project">
         <div class="project-details">
