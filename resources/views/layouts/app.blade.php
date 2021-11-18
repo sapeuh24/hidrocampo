@@ -13,7 +13,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
       <figure class="logo">
-        <img src="{{ asset('images/logotemporal.png') }}" width="200" alt="logo de http://hidrocampo.com" />
+        <img src="{{ asset('images/logotemporal.png') }}" width="240" alt="logo de http://hidrocampo.com" />
       </figure>  
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
