@@ -48,7 +48,14 @@ class LocalizacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $localizacion=new Localizacion();
+        $localizacion->direccion=$request->direccion;
+        $localizacion->id_ciudad=$request->ciudad;
+        $localizacion->id_usuario=$request->usuario;
+        $localizacion->id_plan=$request->plan;
+        $localizacion->save();
+
+        return back();
     }
 
     /**
@@ -68,9 +75,16 @@ class LocalizacionController extends Controller
      * @param  \App\Localizacion  $localizacion
      * @return \Illuminate\Http\Response
      */
-    public function edit(Localizacion $localizacion)
+    public function edit($localizacion)
     {
-        //
+        $localizacion = Localizacion::where('localizaciones.id', $localizacion)
+        ->leftJoin('ciudades', 'localizaciones.id_ciudad', 'ciudades.id')
+        ->leftJoin('planes', 'localizaciones.id_plan', 'planes.id')
+        ->leftJoin('users', 'localizaciones.id_usuario', 'users.id')
+        ->select('localizaciones.id AS id_localizacion', 'ciudades.nomb_ciudad', 'planes.nomb_plan',
+                 'users.nombre')->first();
+        
+        dd($localizacion);
     }
 
     /**
@@ -91,8 +105,12 @@ class LocalizacionController extends Controller
      * @param  \App\Localizacion  $localizacion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Localizacion $localizacion)
+    public function destroy($localizacion)
     {
-        //
+        $localizacion=Localizacion::find($localizacion);
+
+        $localizacion->delete();
+
+        return back();
     }
 }

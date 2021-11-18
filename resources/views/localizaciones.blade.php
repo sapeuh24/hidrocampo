@@ -65,10 +65,10 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Crear plan</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Crear Localizacion</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form action="{{ route('create_planes') }}" method="POST">
+                    <form action="{{ route('create_localizacion') }}" method="POST">
                         @csrf
                         <div class="modal-body">
                             <div class="mb-3">
@@ -116,25 +116,33 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Editar plan</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Editar Localizacion</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="{{ route('actualizar_localizacion') }}" method="POST">
                         @csrf
                         <div class="modal-body">
                             <div class="mb-3">
-                                <label for="nombre_plan_edit" class="form-label">Nombre plan</label>
-                                <input name="nomb_plan_edit" type="text" class="form-control" id="nombre_plan_edit">
+                                <label for="direccion_edit" class="form-label">Direccion</label>
+                                <input name="direccion_edit" type="text" class="form-control" id="direccion_edit">
                             </div>
                             <div class="mb-3">
-                                <label for="precio_edit" class="form-label">Precio</label>
-                                <input name="precio_edit" type="number" class="form-control" id="precio_edit">
+                                <label for="ciudad_edit" class="form-label">Ciudad</label>
+                                <select name="ciudad_edit" class="form-control" id="ciudad_edit">
+                                    @foreach ($ciudades as $ciudad)
+                                        <option value="{{ $ciudad->id }}">{{ $ciudad->nomb_ciudad }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="mb-3">
-                                <label for="cantidad_edit" class="form-label">Cantidad de disp</label>
-                                <input name="cantidad_edit" type="number" class="form-control" id="cantidad_edit">
+                                <label for="plan_edit" class="form-label">Plan</label>
+                                <select name="plan_edit" class="form-control" id="plan_edit">
+                                    @foreach ($planes as $plan)
+                                        <option value="{{ $plan->id }}">{{ $plan->nomb_plan }}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                            <input type="hidden" id="id_plan" name="id_plan">
+                            <input type="hidden" id="id_localizacion" name="id_localizacion">
 
                         </div>
                         <div class="modal-footer">
@@ -151,14 +159,14 @@
 
 @section('scripts')
     <script>
-        function editar_plan(id) {
+        function editar_localizacion(id) {
             axios.get('/traer_info_localizacion/' + id)
                 .then(function(response) {
-                    $('#editar_plan').modal('show');
-                    $('#nombre_plan_edit').val(response.data.nomb_plan);
-                    $('#precio_edit').val(response.data.precio);
-                    $('#cantidad_edit').val(response.data.cant_dispositivos);
-                    $('#id_plan').val(response.data.id);
+                    $('#editar_localizacion').modal('show');
+                    $('#direccion_edit').val(response.data.nomb_plan);
+                    $('#ciudad_edit').val(response.data.precio);
+                    $('#plan_edit').val(response.data.cant_dispositivos);
+                    $('#id_localizacion').val(response.data.id);
                     console.log(response.data.id);
                 })
                 .catch(function(error) {
