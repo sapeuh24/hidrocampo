@@ -325,7 +325,7 @@
                         </a>
                     </li>
                     <li class="">
-                        <a class="" href=" {{ route('index_users') }} ">
+                        <a class="" href=" {{ route('index_usuario') }} ">
                             <i class="icon_house_alt"></i>
                             <span>Usuarios</span>
                         </a>

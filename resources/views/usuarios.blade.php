@@ -1,14 +1,13 @@
 @extends('layouts.administrator')
 
 @section('content')
-
     <main id="main" class="main">
 
         <div class="pagetitle">
             <h1>Usuarios</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="#">Inicio</a></li>
                     <li class="breadcrumb-item active">Usuarios</li>
                 </ol>
             </nav>
@@ -19,100 +18,137 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Listado de usuarios</h5>
+                            <h5 class="card-title">Listado de Usuarios</h5>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#crear_usuario">
+                                Crear Usuario
+                            </button>
                             <table class="table datatable">
                                 <thead>
                                     <tr class="uppercase">
-                                        <th colspan="2"> Nombre </th>
+                                        <th> Nombre </th>
                                         <th> Email </th>
-                                        <th> telefono </th>
+                                        <th> Teléfono </th>
                                         <th> Acciones </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($users as $user)
                                         <tr>
-                                            <td class="fit">
-                                                <img class="user-pic"
-                                                    src="../assets_user/pages/media/users/avatar4.jpg">
-                                            </td>
-                                            <td>
-                                                {{ $user->nombre . ' ' . $user->apellidos }}
-                                            </td>
-                                            <td> {{ $user->email }} </td>
-                                            <td> {{ $user->telefono }} </td>
+                                            <td>{{ $user->nombre." ".$user->apellidos }}</td>
+                                            <td>{{ $user->email}}</td>
+                                            <td>{{ $user->telefono}}</td>
                                             <td>
 
-                                                <a class=" btn btn-outline sbold" data-target="#stack1"
-                                                    data-toggle="modal"><i class="bi bi-pen"></i></a>
-                                                <a href=" {{ route('destroy_user', $user->id) }}"><i
-                                                        class="bi bi-trash"></i></a>
+                                                <div class="btn btn-info" onclick="editar_usuario({{ $user->id }})">
+                                                    Editar</div>
+                                                <a href="{{ route('eliminar_usuario', $user->id) }}"
+                                                    class="btn btn-danger">Eliminar</a>
                                             </td>
                                         </tr>
-                                        <div id="stack1" class="modal fade" tabindex="-1" data-width="400">
-                                            <div class="modal-dialog" style="left:0">
-                                                <form method="post" action="{{ route('update_user', $user->id) }}">
-                                                    @csrf
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <button type="button" class="close"
-                                                                data-dismiss="modal" aria-hidden="true"></button>
-                                                            <h4 class="modal-title">Editar usuario
-                                                            </h4>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                    <h4>{{ $user->nombre . ' ' . $user->apellidos }}
-                                                                    </h4>
-                                                                    <label for="nombre">Nombre</label>
-                                                                    <p>
-                                                                        <input id="nombre" name="nombre" type="text"
-                                                                            value="{{ $user->nombre }}"
-                                                                            class="col-md-6 form-control">
-                                                                    </p>
-                                                                    <label for="apellido">Apellido</label>
-                                                                    <p>
-                                                                        <input id="apellidos" name="apellidos" type="text"
-                                                                            value="{{ $user->apellidos }}"
-                                                                            class="col-md-6 form-control">
-                                                                    </p>
-                                                                    <label for="telefono">Teléfono</label>
-                                                                    <p>
-                                                                        <input id="telefono" name="telefono" type="text"
-                                                                            value="{{ $user->telefono }}"
-                                                                            class="col-md-6 form-control">
-                                                                    </p>
-                                                                    <label for="telefono">Email</label>
-                                                                    <p>
-                                                                        <input id="email" name="email" type="text"
-                                                                            value="{{ $user->email }}"
-                                                                            class="col-md-6 form-control">
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" data-dismiss="modal"
-                                                                class="btn dark btn-outline">Close</button>
-                                                            <button type="submit"
-                                                                class="btn btn-success">Actualizar</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
                                     @endforeach
                                 </tbody>
                             </table>
-                            <!-- End Table with stripped rows -->
-
                         </div>
                     </div>
 
                 </div>
             </div>
         </section>
+        <!-- Button trigger modal -->
 
-    </main><!-- End #main -->
+        <!-- Modal Crear Usuario -->
+        <div class="modal fade" id="crear_usuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Crear Usuario</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="{{ route('crear_usuario') }}" method="POST">
+                        @csrf
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="nombre_usuario" class="form-label">Nombre</label>
+                                <input name="nomb_usuario" type="text" class="form-control" id="nombre_usuario">
+                            </div>
+                            <div class="mb-3">
+                                <label for="apellido_usuario" class="form-label">Apellido</label>
+                                <input name="apellido_usuario" type="text" class="form-control" id="apellido_usuario">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input name="email" type="text" class="form-control" id="email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefono" class="form-label">Telefono</label>
+                                <input name="telefono" type="number" class="form-control" id="telefono">
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Editar Planes -->
+        <div class="modal fade" id="editar_usuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Editarn Usuario</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="{{ route('actualizar_usuario') }}" method="POST">
+                        @csrf
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="nombre_user_edit" class="form-label">Nombre</label>
+                                <input name="nombre_user_edit" type="text" class="form-control" id="nombre_user_edit">
+                            </div>
+                            <div class="mb-3">
+                                <label for="apellido_user_edit" class="form-label">Apellido</label>
+                                <input name="apellido_user_edit" type="text" class="form-control" id="apellido_user_edit">
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefono_user_edit" class="form-label">Teléfono</label>
+                                <input name="telefono_user_edit" type="number" class="form-control" id="telefono_user_edit">
+                            </div>
+                            <input type="hidden" id="id_usuario" name="id_usuario">
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </main>
+@endsection
+
+@section('scripts')
+    <script>
+        function editar_usuario(id) {
+            axios.get('/traer_info_usuario/' + id)
+                .then(function(response) {
+                    console.log(response.data);
+                    $('#editar_usuario').modal('show');
+                    $('#nombre_user_edit').val(response.data.nombre);
+                    $('#apellido_user_edit').val(response.data.apellidos)
+                    $('#telefono_user_edit').val(response.data.telefono);
+                    $('#id_usuario').val(response.data.id);
+                    console.log(response.data.id);
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
+        }
+    </script>
 @endsection
