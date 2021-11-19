@@ -22,6 +22,12 @@
                                 data-bs-target="#crear_localizacion">
                                 Crear Localizacion
                             </button>
+                            @if (Session::has('message'))
+                                <p
+                                    class="alert mt-3
+                                {{ Session::get('alert-class', 'alert-info') }}">
+                                    {{ Session::get('message') }}</p>
+                            @endif
                             <table class="table datatable">
                                 <thead>
                                     <tr class="uppercase">

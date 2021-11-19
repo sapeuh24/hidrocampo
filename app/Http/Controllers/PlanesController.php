@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Plan;
+use App\Localizacion;
+use Session;
 
 class PlanesController extends Controller
 {
@@ -43,7 +45,7 @@ class PlanesController extends Controller
         $plan->cant_dispositivos = $request->cantidad;
         $plan->save();
 
-        return back();
+        return back()->with(Session::flash('message', 'Se ha guardado el plan correctamente'));
     }
 
     /**
@@ -86,7 +88,7 @@ class PlanesController extends Controller
         $plan->cant_dispositivos = $request->cantidad_edit;
         $plan->update();
 
-        return back();
+        return back()->with(Session::flash('message', 'Se ha actualizado el plan correctamente'));
     }
 
     /**
@@ -97,10 +99,14 @@ class PlanesController extends Controller
      */
     public function destroy($id)
     {
-        $plan = Plan::find($id);
+        $localizaciones = Localizacion::where('localizaciones.id_plan', $id)->get();
 
-        $plan->delete();
-
-        return back();
+        if (count($localizaciones) > 0) {
+            return back()->with(Session::flash('message', 'No se puede eliminar el plan porque tiene localizaciones asociadas'));
+        } else {
+            $plan = Plan::find($id);
+            $plan->delete();
+            return back()->with(Session::flash('message', 'Plan eliminado correctamente'));
+        }
     }
 }

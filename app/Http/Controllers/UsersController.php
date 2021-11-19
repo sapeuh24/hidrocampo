@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Localizacion;
 use Session;
 
 class UsersController extends Controller
@@ -18,7 +19,6 @@ class UsersController extends Controller
         $users = User::get();
 
         return view('usuarios', compact('users'));
-
     }
 
     /**
@@ -28,7 +28,6 @@ class UsersController extends Controller
      */
     public function create()
     {
-        
     }
 
     /**
@@ -46,7 +45,7 @@ class UsersController extends Controller
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->save();
-        return back()->with(Session::flash('message', 'Se ha creado el usuario: '. $user->nombre));
+        return back()->with(Session::flash('message', 'Se ha creado el usuario correctamente'));
     }
 
     /**
@@ -88,7 +87,7 @@ class UsersController extends Controller
         $user->telefono = $request->telefono_user_edit;
         $user->update();
 
-        return back()->with(Session::flash('message', 'Se ha actualizado el usuario: '. $user->nombre));
+        return back()->with(Session::flash('message', 'Se ha actualizado el usuario correctamente'));
     }
 
     /**
@@ -99,8 +98,14 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::find($id);
-        $user->delete();
-        return back()->with(Session::flash('message', 'Se ha eliminado el usuario: '. $user->nombre));
+        $localizaciones = Localizacion::where('localizaciones.id_usuario', $id)->get();
+
+        if (count($localizaciones) > 0) {
+            return back()->with(Session::flash('message', 'No se puede eliminar el usuario porque tiene localizaciones asociadas'));
+        } else {
+            $user = User::find($id);
+            $user->delete();
+            return back()->with(Session::flash('message', 'Se ha eliminado el usuario correctamente'));
+        }
     }
 }

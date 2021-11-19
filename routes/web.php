@@ -39,3 +39,10 @@ Route::get('/eliminar_localizacion/{id}', 'LocalizacionController@destroy')->nam
 Route::get('/traer_info_localizacion/{id}', 'LocalizacionController@edit')->name('traer_info_localizacion');
 Route::post('/actualizar_localizacion', 'LocalizacionController@update')->name('actualizar_localizacion');
 Route::post('/crear_localizacion', 'LocalizacionController@store')->name('create_localizacion');
+
+//rutas de dispositivos
+Route::get('/dispositivos', 'DispositivoController@index')->name('index_dispositivos');
+Route::post('/crear_dispositivo/', 'DispositivoController@store')->name('crear_dispositivo');
+Route::get('/eliminar_dispositivo/{id}', 'DispositivoController@destroy')->name('eliminar_dispositivo');
+Route::post('/actualizar_dispositivo/', 'DispositivoController@update')->name('actualizar_dispositivo');
+Route::get('/traer_info_dispositivo/{id}', 'DispositivoController@edit')->name('traer_info_dispositivo');
