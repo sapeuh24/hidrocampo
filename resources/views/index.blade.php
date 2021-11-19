@@ -68,65 +68,42 @@
       </div>
     </div> 
   </section>
-  <section  id="galeria">
+  <section  id="destacado">
     <div class="image">
       <img src="{{ asset('images/imgDestacada1.jpg') }}" alt="">
     </div>
     <div class="content">
-      aaaaaa
+      <h3>Agricultura Inteligente</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper tempor mi, eget aliquam lacus tincidunt ut. Pellentesque ultrices justo eget dolor suscipit, non cursus dui vehicula. Nullam varius vulputate velit ut fermentum. Donec tempus rutrum augue, sit amet dictum orci pellentesque iaculis. </p>
     </div>
   </section>
-      <article class="project">
-        <div class="project-details">
-          <h3 class="project-title">Sistema de riego</h3>
-          <h6 class="project-course">1<sup>o</sup>sitema de riego</h6>
-          <p class="project-descripction">Es un componente tecnologico basico, programable para optimizar el riego de los cultivos .</p>
-        </div>
-        <figure class="project-imageContainer">
-          <img src="images/foto.jpg" alt="lo que muestra bajo al img" width="350">
-        </figure>
-      </article>
-      <article class="project">
-        <figure class="project-imageContainer">
-          <img src="images/campo.jpg" alt="lo que muestra bajo al img" width="400">
-        </figure>
-        <div class="project-details">
-          <h3 class="project-title">Titulo para la segunda parte</h3>
-          <h6 class="project-course">segundo slide</h6>
-          <p class="project-url"><small><strong>visita el sito: </strong> hidrocampo.com</small></p>
-          <p class="project-descripction">texto para llenar el.</p>
-        </div>
-      </article>
-    </div>
-  </section>
-  </section>
-  <div class="container">
-    <h2 class="event-list-title">Implementacion.</h2>
-  </div>
-  <section id="eventos" class="event-list">
+  <section id="galeria">
     <div class="container">
-      <article class="event">
-        <figure class="event-imageContainer">
-
-          <img class="event-image" src="images/cover_proyecto.jpg" />
-        </figure>
-        <div class="event-detail">
-          <h3 class="event-title">Descripcion imagen</h3>
-          <p class="event-descripction">Descripcion del la imgaen de arriba</p>
-          <a class="event-url" href="https://youtu.be/deWFYJkAMbA" target="_blank">ver el video</a>
+      <header>
+          <h2>Nuestros Proyectos</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum bibendum nisi a sapien elementum auctor. Nam consectetur imperdiet aliquet. Maecenas sit amet porta justo.</p>
+      </header>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <div class="contenedorGaleria">
+            <div class="contenedorGalleft">
+              <div class="image"></div>
+              <div class="image"></div>
+              <div class="image"></div>
+            </div>
+            <div class="contenedorGalright">
+              <div class="image"></div>
+            </div>
+            
+            
+          </div>
         </div>
-      </article>
-      <article class="event">
-        <figure class="event-imageContainer">
-
-          <img class="event-image" src="images/cover_proyecto.jpg" />
-        </figure>
-        <div class="event-detail">
-          <h3 class="event-title">Descripcion imagen</h3>
-          <p class="event-descripction">Descripcion del la imgaen de arriba</p>
-          <a class="event-url" href="https://youtu.be/deWFYJkAMbA" target="_blank">ver el video</a>
+        <div class="col-12 col-md-6">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/iseaGvJFOgo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-      </article>
+      </div>
     </div>
   </section>
+      
+ 
 @endsection
