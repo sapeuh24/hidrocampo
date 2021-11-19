@@ -96,13 +96,19 @@
   }
 
   h2 {
-    color: #1360a6;
     text-transform: uppercase;
     font-family: "Source Sans Pro", sans-serif;
     font-weight: bold;
     /* font-weight sirve para dar estilos como negrilla o italica*/
     font-size: 24PX;
     margin-bottom: 40px;
+  }
+
+  p{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    font-size: 14px;
+    line-height: 1.8em;
   }
 
   .hero {
@@ -122,15 +128,7 @@
     object-fit: cover;
   }
 
-  #nosotros{
-    padding: 4em 0;
-  }
-
-  #nosotros header{
-    margin-bottom: 3em;
-  }
-
-  #nosotros h2{
+  h2{
     font-family: 'Montserrat', sans-serif;
     font-size: 3rem;
     width: 100%;
@@ -142,17 +140,95 @@
     margin: 20px 0;
   }
 
-  #nosotros header p{
-    font-size: 1em;
+  #nosotros, #galeria{
+    padding: 5em 0;
   }
 
-  #nosotros p{
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 200;
-    text-align: center;
-    font-size: 14px;
-    width: 80%;
+  header{
+    margin-bottom: 3em;
+  }
+
+  header p{
+    font-size: 1.1em;
+    width: 75%;
     margin: 0 auto 10px auto;
+    text-align: center;
+  }
+
+  .contenedorGaleria{
+    display: flex;
+    max-width: 100%;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .contenedorGaleria .image img{
+    max-width: 100%;
+    object-fit: cover;
+    -moz-object-position: center top;
+    -webkit-object-position: center top;
+    -ms-object-position: center top;
+    object-position: center top;
+  }
+
+  .contenedorGaleria .contenedorGalleft{
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 8px 0 0;
+    margin: 0;
+  }
+
+  .contenedorGaleria .contenedorGalright{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 0 0;
+    margin: 0;
+  }
+
+  .contenedorGaleria .contenedorGalleft .image:nth-child(1) {
+    width: 100%;
+    height: 160px;
+    background: url('../images/img1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    margin-bottom: 8px;
+  }
+
+  .contenedorGaleria .contenedorGalleft .image:nth-child(2), .contenedorGaleria .contenedorGalleft .image:nth-child(3) {
+    width: 49%;
+    height: 150px;
+  }
+
+  .contenedorGaleria .contenedorGalleft .image:nth-child(2){
+    background: url('../images/img2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+  }
+
+  .contenedorGaleria .contenedorGalleft .image:nth-child(3){
+    background: url('../images/img4.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+  }
+
+  .contenedorGaleria .contenedorGalright .image:nth-child(1) {
+    width: 100%;
+    height: 100%;
+    background: url('../images/img3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-origin: content-box;
   }
 
   #nosotros .icon{
@@ -182,7 +258,7 @@
     background: #43c5bf;
   }
 
-  #galeria{
+  #destacado{
     moz-align-items: -moz-stretch;
     -webkit-align-items: -webkit-stretch;
     -ms-align-items: -ms-stretch;
@@ -205,7 +281,7 @@
     background: #fff7f7;
   }
 
-  #galeria .image{
+  #destacado .image{
     moz-flex-grow: 0;
     -webkit-flex-grow: 0;
     -ms-flex-grow: 0;
@@ -220,7 +296,7 @@
     position: relative;
   }
 
-  #galeria .image img{
+  #destacado .image img{
     /*max-width: 100%;*/
     width: calc(100% + 50px);
     width: -webkit-calc(100% + 50px);
@@ -243,19 +319,33 @@
     
   }
 
-  #galeria .image:hover img{
+  #destacado .image:hover img{
     -webkit-transform: translate3d(-50px,0,0);
     transform: translate3d(-50px,0,0);
     opacity: 1;
   }
 
-  #galeria .content{
+  #destacado .content{
     width: 60%;
     display: flex;
     flex-direction: column;
     position: relative;
-    padding: 0 0 0 80px;
+    padding: 0 10em;
     justify-content: center;
+  }
+
+  #destacado .content h3{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    width: 100%;
+    font-weight: 200;
+    margin: 0 0 0.5em 0;
+  }
+
+  #destacado .content p{
+    font-weight: 200;
+    text-align: left;
+    width: 80%;
   }
 
   .Portafolio {
@@ -514,18 +604,6 @@
     font-family: "Source Sans Pro", sans-serif;
   }
 
-  .container {
-    /* border: 1px solid red; */
-    max-width: 1000px;
-    width: 100%;
-    flex: 1;
-    margin: 0 auto;
-    display: inherit;
-    justify-content: inherit;
-    align-items: inherit;
-    height: inherit;
-    /* flex-wrap: inherit; */
-  }
 
   @media screen and (max-width: 1024px) {
 
