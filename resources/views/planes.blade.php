@@ -18,11 +18,16 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Listado de planes</h5>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal"
                                 data-bs-target="#crear_plan">
                                 Crear Plan
                             </button>
+                            @if (Session::has('message'))
+                                <p
+                                    class="alert mt-3
+                                {{ Session::get('alert-class', 'alert-info') }}">
+                                    {{ Session::get('message') }}</p>
+                            @endif
                             <table class="table datatable">
                                 <thead>
                                     <tr class="uppercase">

@@ -6,7 +6,9 @@ use App\Localizacion;
 use App\Ciudad;
 use App\User;
 use App\Plan;
+use App\Dispositivo;
 use Illuminate\Http\Request;
+use Session;
 
 class LocalizacionController extends Controller
 {
@@ -55,7 +57,7 @@ class LocalizacionController extends Controller
         $localizacion->id_plan=$request->plan;
         $localizacion->save();
 
-        return back();
+        return back()->with(Session::flash('message', 'Se ha guardado el plan correctamente'));
     }
 
     /**
@@ -81,8 +83,12 @@ class LocalizacionController extends Controller
         ->leftJoin('ciudades', 'localizaciones.id_ciudad', 'ciudades.id')
         ->leftJoin('planes', 'localizaciones.id_plan', 'planes.id')
         ->leftJoin('users', 'localizaciones.id_usuario', 'users.id')
-        ->select('localizaciones.id AS id_localizacion', 'ciudades.nomb_ciudad', 'planes.nomb_plan',
-                 'users.nombre')->first();
+        ->select(
+            'localizaciones.id AS id_localizacion',
+            'ciudades.nomb_ciudad',
+            'planes.nomb_plan',
+            'users.nombre'
+        )->first();
         
         dd($localizacion);
     }
@@ -107,10 +113,14 @@ class LocalizacionController extends Controller
      */
     public function destroy($localizacion)
     {
-        $localizacion=Localizacion::find($localizacion);
+        $dispositivos = Dispositivo::where('dispositivos.id_localizacion', $localizacion)->get();
 
-        $localizacion->delete();
-
-        return back();
+        if (count($dispositivos) > 0) {
+            return back()->with(Session::flash('message', 'No se puede eliminar la localización porque tiene dispositivos asociados'));
+        } else {
+            $localizacion = Localizacion::find($localizacion);
+            $localizacion->delete();
+            return back()->with(Session::flash('message', 'Localización eliminada correctamente'));
+        }
     }
 }

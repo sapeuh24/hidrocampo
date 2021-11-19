@@ -18,11 +18,16 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Listado de Usuarios</h5>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal"
                                 data-bs-target="#crear_usuario">
                                 Crear Usuario
                             </button>
+                            @if (Session::has('message'))
+                                <p
+                                    class="alert mt-3
+                                {{ Session::get('alert-class', 'alert-info') }}">
+                                    {{ Session::get('message') }}</p>
+                            @endif
                             <table class="table datatable">
                                 <thead>
                                     <tr class="uppercase">
@@ -35,9 +40,9 @@
                                 <tbody>
                                     @foreach ($users as $user)
                                         <tr>
-                                            <td>{{ $user->nombre." ".$user->apellidos }}</td>
-                                            <td>{{ $user->email}}</td>
-                                            <td>{{ $user->telefono}}</td>
+                                            <td>{{ $user->nombre . ' ' . $user->apellidos }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            <td>{{ $user->telefono }}</td>
                                             <td>
 
                                                 <div class="btn btn-info" onclick="editar_usuario({{ $user->id }})">
@@ -96,7 +101,8 @@
         </div>
 
         <!-- Modal Editar Planes -->
-        <div class="modal fade" id="editar_usuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="editar_usuario" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -116,7 +122,8 @@
                             </div>
                             <div class="mb-3">
                                 <label for="telefono_user_edit" class="form-label">Teléfono</label>
-                                <input name="telefono_user_edit" type="number" class="form-control" id="telefono_user_edit">
+                                <input name="telefono_user_edit" type="number" class="form-control"
+                                    id="telefono_user_edit">
                             </div>
                             <input type="hidden" id="id_usuario" name="id_usuario">
 

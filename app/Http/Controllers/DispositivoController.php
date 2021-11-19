@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Localizacion;
+use App\Dispositivo;
+use Session;
 
-class LocalizacionesController extends Controller
+class DispositivoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +16,11 @@ class LocalizacionesController extends Controller
      */
     public function index()
     {
-        //
+        $dispositivos = Dispositivo::leftJoin('localizaciones', 'localizaciones.id', '=', 'dispositivos.id_localizacion')
+        ->get();
+        $localizaciones = Localizacion::get();
+
+        return view('dispositivos', compact('dispositivos', 'localizaciones'));
     }
 
     /**
@@ -34,7 +41,12 @@ class LocalizacionesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dispositivo = new Dispositivo();
+        $dispositivo->nomb_sensor = $request->nomb_sensor;
+        $dispositivo->id_localizacion = $request->id_localizacion;
+        $dispositivo->save();
+
+        return back()->with(Session::flash('message', 'Se ha guardado el dispositivo correctamente'));
     }
 
     /**
@@ -79,6 +91,9 @@ class LocalizacionesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dispositivo = Dispositivo::find($id);
+        $dispositivo->delete();
+
+        return back()->with(Session::flash('message', 'Se ha eliminado el dispositivo correctamente'));
     }
 }
